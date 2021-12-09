@@ -124,15 +124,15 @@ CREATE TABLE Vendem_para_Clientes(
 );
 
 CREATE TABLE Avalia_Compras_Vendedores(
-    cpf_cliente char(11),
-    nome_vendedor varchar(100),
-    ID_compra integer,
+    cliente char(11),
+    vendedor varchar(100),
+    compra integer,
     nota integer,
     descricao text(500),
-    PRIMARY KEY(cpf_cliente, nome_vendedor, ID_compra),
-    FOREIGN KEY(cpf_cliente) REFERENCES Clientes(cpf),
-	FOREIGN KEY(nome_vendedor) REFERENCES Vendedores(nome),
-	FOREIGN KEY(ID_compra) REFERENCES Compras(ID)
+    PRIMARY KEY(cliente, vendedor, compra),
+    FOREIGN KEY(cliente) REFERENCES Clientes(cpf),
+	FOREIGN KEY(vendedor) REFERENCES Vendedores(nome),
+	FOREIGN KEY(compra) REFERENCES Compras(ID)
 );
 
 CREATE TABLE Produtos_Armazenados_Armazens(
