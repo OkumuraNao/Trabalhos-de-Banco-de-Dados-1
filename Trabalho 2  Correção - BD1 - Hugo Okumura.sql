@@ -29,9 +29,9 @@ CREATE TABLE Enderecos(
     cidade varchar(100),
     numero integer,
     cep char(8),
-    logradouro varchar(100),
+
     FOREIGN KEY(cpf) REFERENCES Clientes(cpf) ON DELETE CASCADE,
-    PRIMARY KEY(cpf, logradouro)
+    PRIMARY KEY(cpf, cep)
 );
 
 CREATE TABLE Vendedores(
