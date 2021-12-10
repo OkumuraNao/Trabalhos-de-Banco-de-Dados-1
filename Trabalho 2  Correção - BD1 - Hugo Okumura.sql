@@ -37,14 +37,14 @@ CREATE TABLE Enderecos(
 CREATE TABLE Vendedores(
 	nome varchar(100),
     email varchar(100),
-    histórico_vendas integer,
+    historico_vendas integer,
     PRIMARY KEY(nome)
 );
 
 CREATE TABLE Vendedores_Representantes(
 	nome varchar(100),
 	empresa varchar(100),
-    cnpj char(4),
+    cnpj char(14),
     certificado varchar(200),
     FOREIGN KEY(nome) REFERENCES Vendedores(nome) ON DELETE CASCADE,
     PRIMARY KEY(nome)
