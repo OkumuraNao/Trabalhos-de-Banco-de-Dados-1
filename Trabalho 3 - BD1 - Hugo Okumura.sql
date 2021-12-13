@@ -44,8 +44,8 @@ VALUES	('Leandro','Lean@gmail.com','700'),
 INSERT INTO vendedores_representantes(nome, empresa, cnpj, certificado)
 VALUES	('Regina','Toyota','76150881000199','Publicidade e propaganda'),
 		('Milton','Toyota','46142713000190','Publicidade e propaganda'),
-		('Rachel','Toyota','27577711000180','Marketing '),
-		('Jhonas','Lenovo','24812120000151','Marketing '),
+		('Rachel','Toyota','27577711000180','Marketing'),
+		('Jhonas','Lenovo','24812120000151','Marketing'),
 		('Irene','Lenovo','74002966000102','Gestão Comercial'),
 		('Daniel','Consul','89571205000130','Marketing'),
 		('Juliana','Makita','84997760000105','Gestão Comercial'),
@@ -60,12 +60,12 @@ Values	('Regina','20.00','Toyota Hilux 2.8 Tdi Srx Cab. Dupla 4x4 Aut. 4p','2022
 		('Jhonas','30.00','Ideapad Gaming 3i I5-10300h 8gb 256gb Ssd Gtx 1650 Linux','2021-12-31'),
 		('Irene','30.00','Notebook Lenovo Ideapad 3 R5-5500u 8gb 256gb Ssd W11 15.6','2021-12-26'),
 		('Juliana','50.00','Serra Mármore 4.3/8 1300w Com 2 Discos 4100nh3zx2 Makita','2021-12-17'),
-		('Juliana','40.00','Parafusadeira sem fio Makita DF001DW 3.6V azul-turquesa','2021-12-20'),
+		('Paulo','40.00','Parafusadeira sem fio Makita DF001DW 3.6V azul-turquesa','2021-12-20'),
 		('Pamela','20.00','Apple iPhone 13 Pro Max (128 GB) - Dourado','2021-12-30'),
 		('Leandro','10.00','Apple iPhone SE (2a geração) 64 GB - Preto','2021-12-11'),
 		('Leandro','5.00','Apple iPhone 11 (64 GB) - (PRODUCT)RED','2021-12-12');
 
-INSERT INTO compras(ID, data_realizada, valor, parcelas, cpf_cliente)
+INSERT INTO compras(ID, data_realizada, valor, parcelas, cpf)
 VALUES	('001','2021-10-02','190320.00','6','74202670060'),
 		('002','2021-11-06','2339.10','4','84597305068'),
 		('003','2021-11-12','173.40','1','18899087032'),
@@ -76,18 +76,6 @@ VALUES	('001','2021-10-02','190320.00','6','74202670060'),
 		('008','2021-11-27','2519.30','3','34059345083'),
 		('009','2021-12-05','39920.99','4','43416947070'),
 		('010','2021-12-07','173.40','1','73503621024');
-
-INSERT INTO entregas(ID, codigo_rastreamento, data_prevista, localizacao, destino)
-VALUES	('001','100','2021-10-09','','Arez'),
-		('002','200','2021-11-13','','Maravilha'),
-		('003','300','2021-11-19','','Campo Mourão'),
-		('004','400','2021-11-20','','Cacoal'),
-		('005','500','2021-11-27','','Gurupi'),
-		('006','600','2021-12-03','','Porto Velho'),
-		('007','700','2021-12-04','','Rio Branco'),
-		('008','800','2021-12-04','','Brasília'),
-		('009','900','2021-12-12','','Feira de Santana'),
-        ('010','110','2021-12-14','','Anápolis');
 
 
 INSERT INTO categorias(nome, subcategorias, marca)
@@ -130,7 +118,7 @@ VALUES ('Toyota Hilux 2.8 Tdi Srx Cab. Dupla 4x4 Aut. 4p','237900.00',
        
        ('Parafusadeira sem fio Makita DF001DW 3.6V azul-turquesa','289.00',
        'Compacta, sem fio, Torque máximo de 6 Nm, Velocidade mínima de rotação : 0 rpm, Velocidade máxima de rotação: 220 rpm',
-       'Juliana','Ferramentas'), 
+       'Paulo','Ferramentas'), 
        
        ('Apple iPhone 13 Pro Max (128 GB) - Dourado','9000.00',
        'iPhone 13 Pro Max. O maior upgrade do sistema de câmera Pro até hoje. 
@@ -151,6 +139,19 @@ VALUES ('Toyota Hilux 2.8 Tdi Srx Cab. Dupla 4x4 Aut. 4p','237900.00',
        Veja cores fiéis em fotos, vídeos e jogos na tela Liquid Retina de 6,1 polegadas.',
        'Leandro','Telefones');
 
+INSERT INTO entregas(ID, codigo_rastreamento, data_prevista, localizacao, destino)
+VALUES	('001','100','2021-10-09','Rio de Janeiro','Arez'),
+		('001','101','2021-10-09','São Paulo','Arez'),
+		('002','200','2021-11-13','São Paulo','Maravilha'),
+		('003','300','2021-11-19','São Paulo','Campo Mourão'),
+		('004','400','2021-11-20','São Paulo','Cacoal'),
+		('005','500','2021-11-27','São Paulo','Gurupi'),
+		('006','600','2021-12-03','São Paulo','Porto Velho'),
+		('007','700','2021-12-04','João Pessoa','Rio Branco'),
+		('008','800','2021-12-04','João Pessoa','Brasília'),
+		('009','900','2021-12-12','São Paulo','Feira de Santana'),
+        ('010','110','2021-12-14','São Paulo','Anápolis');
+
 INSERT INTO armazens(ID, localizacao, capacidade, qtde_produtos)
 VALUES	('1000','São Paulo','1000','600'),
 		('2000','São Paulo','1000','700'),
@@ -162,6 +163,31 @@ VALUES	('1000','São Paulo','1000','600'),
 		('8000','São Paulo','1000','700'),
 		('9000','Rio de Janeiro','1000','800'),
         ('1100','Rio de Janeiro','1000','250');
+        
+INSERT INTO produtos_armazenados_armazens(produto, armazem)
+VALUES  ('Toyota Hilux 2.8 Tdi Srx Cab. Dupla 4x4 Aut. 4p','1000'),
+		('Toyota Hilux 2.8 STD 4X4 CD 16V DIESEL 4P MANUAL','2000'),
+		('Toyota Hilux Cd Srv A4 Fd','2000'),
+		('Ideapad Gaming 3i I5-10300h 8gb 256gb Ssd Gtx 1650 Linux','3000'),
+		('Notebook Lenovo Ideapad 3 R5-5500u 8gb 256gb Ssd W11 15.6','4000'),
+		('Serra Mármore 4.3/8 1300w Com 2 Discos 4100nh3zx2 Makita','5000'),
+		('Parafusadeira sem fio Makita DF001DW 3.6V azul-turquesa','6000'),
+		('Apple iPhone 13 Pro Max (128 GB) - Dourado','7000'),
+		('Apple iPhone SE (2a geração) 64 GB - Preto','8000'),
+        ('Apple iPhone 11 (64 GB) - (PRODUCT)RED','9000');
+        
+INSERT INTO vendem_para_clientes(nome, cpf)
+VALUES	('Leandro','74202670060'),
+		('Paulo','74202670060'),
+		('Leandro','84597305068'),
+		('Paulo','18899087032'),
+		('Paulo','59872124051'),
+		('Leandro','64280356009'),
+		('Rachel','89463211055'),
+		('Irene','38111664095'),
+		('Irene','34059345083'),
+		('Regina','43416947070'),
+        ('Paulo','73503621024');
 
 INSERT INTO compras_de_produtos(ID, nome)
 VALUES	('001','Apple iPhone 11 (64 GB) - (PRODUCT)RED'),
@@ -176,7 +202,6 @@ VALUES	('001','Apple iPhone 11 (64 GB) - (PRODUCT)RED'),
 		('009','Toyota Hilux 2.8 Tdi Srx Cab. Dupla 4x4 Aut. 4p'),
 		('010','Parafusadeira sem fio Makita DF001DW 3.6V azul-turquesa');
         
-        
 INSERT INTO avalia_compras_vendedores(cliente, vendedor, compra, nota, descricao)
 VALUES	('74202670060','Leandro','001','4','Produto veio sem defeito'),        
         ('84597305068','Leandro','002','3','Produto veio sem defeito, mas o atendimento deixou a desejar.'),
@@ -189,14 +214,15 @@ VALUES	('74202670060','Leandro','001','4','Produto veio sem defeito'),
         ('43416947070','Paulo','009','3','O produto em si não é muito recomendável'),
         ('73503621024','Paulo','010','3','O produto em si não é muito recomendável');
         
-INSERT INTO produtos_armazenados_armazens(nome_produto, ID_armazem)
-VALUES  ('Toyota Hilux 2.8 Tdi Srx Cab. Dupla 4x4 Aut. 4p','1000'),
-		('Toyota Hilux 2.8 STD 4X4 CD 16V DIESEL 4P MANUAL','2000'),
-		('Toyota Hilux Cd Srv A4 Fd','2000'),
-		('Ideapad Gaming 3i I5-10300h 8gb 256gb Ssd Gtx 1650 Linux','3000'),
-		('Notebook Lenovo Ideapad 3 R5-5500u 8gb 256gb Ssd W11 15.6','4000'),
-		('Serra Mármore 4.3/8 1300w Com 2 Discos 4100nh3zx2 Makita','5000'),
-		('Parafusadeira sem fio Makita DF001DW 3.6V azul-turquesa','6000'),
-		('Apple iPhone 13 Pro Max (128 GB) - Dourado','7000'),
-		('Apple iPhone SE (2a geração) 64 GB - Preto','8000'),
-        ('Apple iPhone 11 (64 GB) - (PRODUCT)RED','9000');
+INSERT INTO produtos_pertencem_categorias(produto, categorias)
+VALUES	('Toyota Hilux 2.8 Tdi Srx Cab. Dupla 4x4 Aut. 4p','Automóveis'),
+		('Toyota Hilux 2.8 STD 4X4 CD 16V DIESEL 4P MANUAL','Automóveis'),
+		('Toyota Hilux Cd Srv A4 Fd','Automóveis'),
+		('Ideapad Gaming 3i I5-10300h 8gb 256gb Ssd Gtx 1650 Linux','Informática'),
+		('Notebook Lenovo Ideapad 3 R5-5500u 8gb 256gb Ssd W11 15.6','Informática'),
+		('Serra Mármore 4.3/8 1300w Com 2 Discos 4100nh3zx2 Makita','Ferramentas'),
+		('Parafusadeira sem fio Makita DF001DW 3.6V azul-turquesa','Ferramentas'),
+		('Apple iPhone 13 Pro Max (128 GB) - Dourado','Telefones'),
+		('Apple iPhone SE (2a geração) 64 GB - Preto','Telefones'),
+		('Apple iPhone 11 (64 GB) - (PRODUCT)RED','Telefones');
+        

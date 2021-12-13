@@ -52,8 +52,8 @@ CREATE TABLE Vendedores_Representantes(
 
 CREATE TABLE Ofertas(
 	nome varchar(100),
-    desconto integer,
-    produtos varchar(100),
+    desconto decimal(5,2),
+    produtos varchar(200),
     prazo date,
     FOREIGN KEY(nome) REFERENCES Vendedores_Representantes(nome) ON DELETE CASCADE,
     PRIMARY KEY(nome, produtos)
@@ -64,8 +64,8 @@ CREATE TABLE Compras(
     data_realizada date,
     valor decimal(10,2),
     parcelas integer,
-    cpf_cliente char(11),
-    FOREIGN KEY(cpf_cliente) REFERENCES Clientes(cpf), 
+    cpf char(11),
+    FOREIGN KEY(cpf) REFERENCES Clientes(cpf), 
     PRIMARY KEY(ID)
 );
 
@@ -115,12 +115,12 @@ CREATE TABLE Compras_De_Produtos(
 );
 
 CREATE TABLE Vendem_para_Clientes(
-	nome_vendedor varchar(100),
-    cpf_cliente char(11),
+	nome varchar(100),
+    cpf char(11),
 
-    PRIMARY KEY(nome_vendedor, cpf_cliente),
-    FOREIGN KEY(nome_vendedor) REFERENCES Vendedores(nome),
-    FOREIGN KEY(cpf_cliente) REFERENCES Clientes(cpf)
+    PRIMARY KEY(nome, cpf),
+    FOREIGN KEY(nome) REFERENCES Vendedores(nome),
+    FOREIGN KEY(cpf) REFERENCES Clientes(cpf)
 );
 
 CREATE TABLE Avalia_Compras_Vendedores(
@@ -136,9 +136,17 @@ CREATE TABLE Avalia_Compras_Vendedores(
 );
 
 CREATE TABLE Produtos_Armazenados_Armazens(
-	nome_produto varchar(100),
-    ID_armazem integer,
-	FOREIGN KEY(nome_produto) REFERENCES Produtos(nome),
-    FOREIGN KEY(ID_armazem) REFERENCES Armazens(ID),
-    PRIMARY KEY(nome_produto, ID_armazem)
+	produto varchar(100),
+    armazem integer,
+	FOREIGN KEY(produto) REFERENCES Produtos(nome),
+    FOREIGN KEY(armazem) REFERENCES Armazens(ID),
+    PRIMARY KEY(produto, armazem)
+);
+
+CREATE TABLE Produtos_Pertencem_Categorias(
+	produto varchar(100),
+    categorias varchar(100),
+	FOREIGN KEY(produto) REFERENCES Produtos(nome),
+    FOREIGN KEY(categorias) REFERENCES Categorias(nome),
+    PRIMARY KEY(categorias, produto)
 );
